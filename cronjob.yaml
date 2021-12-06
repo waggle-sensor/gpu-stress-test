@@ -1,0 +1,17 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: gpu-stress-test
+spec:
+  schedule: "*/10 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: gpu-stress-test
+            image: iperezx/gpu-stress-test:latest 
+            imagePullPolicy: IfNotPresent
+            command:
+            - -m 1
+          restartPolicy: OnFailure
