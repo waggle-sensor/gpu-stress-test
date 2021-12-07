@@ -8,6 +8,15 @@ spec:
     spec:
       template:
         spec:
+          affinity:
+            nodeAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                - matchExpressions:
+                  - key: resource.gpu
+                    operator: In
+                    values:
+                    - "true"
           containers:
           - name: gpu-stress-test
             image: iperezx/gpu-stress-test:latest 
