@@ -5,7 +5,7 @@ This is a simple piece of PyTorch code to stress test a GPU.
 ## Buildx building and pushing to Dockerhub
 
 ```
-docker buildx build -t iperezx/gpu-stress-test:latest --platform linux/amd64,linux/arm/v7,linux/arm64 --push .
+docker buildx build -t iperezx/gpu-stress-test:latest --platform linux/amd64,linux/arm64 --push .
 ```
 
 ## Build and run on device

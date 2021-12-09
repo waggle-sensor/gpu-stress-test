@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: gpu-stress-test
 spec:
-  schedule: "*/10 * * * *"
+  schedule: "*/30 * * * *"
   jobTemplate:
     spec:
       template:
@@ -22,5 +22,5 @@ spec:
             image: iperezx/gpu-stress-test:latest 
             imagePullPolicy: IfNotPresent
             command:
-            - -m 1
+            - -m 5
           restartPolicy: OnFailure

@@ -12,7 +12,7 @@ num_minutes = float(args.Minutes)
 
 x = torch.linspace(0, 4, 16*1024**2).cuda()
 
-timeout = time.time() + 60*num_minutes   # 5 minutes from now
+timeout = time.time() + 60*num_minutes
 
 while True:
     x = x * (1.0 - x)
