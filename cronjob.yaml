@@ -21,6 +21,5 @@ spec:
           - name: gpu-stress-test
             image: iperezx/gpu-stress-test:latest 
             imagePullPolicy: IfNotPresent
-            command:
-            - -m 5
+            args: ["-m 5"]
           restartPolicy: OnFailure
