@@ -15,6 +15,29 @@ a true Ubuntu:18.04 host.
 
 ## Running the gpu-stress-test container
 
+### On Kubernetes
+
+```bash
+kubectl run gpu-test --image=waggle/gpu-stress-test:latest --attach=true
+```
+
+If the image is not cached on the machine it will take time to download the image.
+
+__NOTE: the `--attach` may be detatched if the downloading takes longer than TIMEOUT. If it occurrs, run kubectl get pod to check the status of the gpu-test pod__
+
+Have another terminal on the machine and check status of GPU as below,
+
+```bash
+# on amd64 with Nvidia GPU
+nvidia-smi
+
+# on Nvidia Jetsons
+# watch GR3D entity
+tegrastat
+```
+
+To stop the gpu-test pod, press Ctrl + C. If the pod was detatched, you can do `kubectl delete pod gpu-test`.
+
 ### amd64 platform
 
 For the latest nvidia-container-runtime version use
