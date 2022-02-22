@@ -5,12 +5,12 @@ This is a simple piece of PyTorch code to stress test a GPU.
 ## Buildx building and pushing to Dockerhub
 
 ```
-docker buildx build -t iperezx/gpu-stress-test:latest --platform linux/amd64,linux/arm64 --push .
+docker buildx build -t waggle/gpu-stress-test:latest --platform linux/amd64,linux/arm64 --push .
 ```
 
 ## Build and run on device
 ```
-docker build -t iperezx/gpu-stress-test:latest .
+docker build -t waggle/gpu-stress-test:latest .
 ```
 The docker has an entrypoint and a default value in the cmd. The python script expects to be pass in the number of minutes to run the stress test. 
 Python usage:
@@ -19,16 +19,16 @@ python stress.py -m 1
 ```
 Docker usage:
 ```
-docker run -it --rm --runtime nvidia --network host iperezx/gpu-stress-test:latest
+docker run -it --rm --runtime nvidia --network host waggle/gpu-stress-test:latest
 ```
 Docker usage with changing the number of minutes to 2:
 ```
-docker run -it --rm --runtime nvidia --network host iperezx/gpu-stress-test:latest -m 2
+docker run -it --rm --runtime nvidia --network host waggle/gpu-stress-test:latest -m 2
 ```
 
 Push image to Dockerhub:
 ```
-docker push iperezx/gpu-stress-test:latest
+docker push waggle/gpu-stress-test:latest
 ```
 
 ## Kubernetes Cronjob
@@ -51,4 +51,3 @@ Delete cronjob:
 ```
 kubectl delete -f cronjob.yaml
 ```
-

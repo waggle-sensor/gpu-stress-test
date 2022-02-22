@@ -19,7 +19,7 @@ spec:
                     - "true"
           containers:
           - name: gpu-stress-test
-            image: iperezx/gpu-stress-test:latest 
+            image: waggle/gpu-stress-test:latest
             imagePullPolicy: IfNotPresent
             args: ["-m 5"]
           restartPolicy: OnFailure
