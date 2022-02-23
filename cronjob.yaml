@@ -1,0 +1,25 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: gpu-stress-test
+spec:
+  schedule: "*/30 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          affinity:
+            nodeAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                - matchExpressions:
+                  - key: resource.gpu
+                    operator: In
+                    values:
+                    - "true"
+          containers:
+          - name: gpu-stress-test
+            image: waggle/gpu-stress-test:latest
+            imagePullPolicy: IfNotPresent
+            args: ["-m 5"]
+          restartPolicy: OnFailure

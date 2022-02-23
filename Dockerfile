@@ -1,5 +1,6 @@
-FROM waggle/plugin-torch:1.4.0
+FROM waggle/plugin-base:1.1.1-ml
 
 COPY . .
 
-ENTRYPOINT [ "python3", "stress.py" ]
+ENTRYPOINT [ "python3", "stress.py"]
+CMD ["-m 5"]
