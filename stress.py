@@ -6,7 +6,9 @@ import time
 import torch
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-m", "--Minutes", help="Number of minutes to run the stress test")
+parser.add_argument(
+    "-m", "--Minutes", nargs="?", const=5, type=int, help="Number of minutes to run the stress test"
+)
 args = parser.parse_args()
 
 num_minutes = float(args.Minutes)
