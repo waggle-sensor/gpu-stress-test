@@ -15,6 +15,14 @@ parser.add_argument(
     type=int,
     help="Number of seconds to run the stress test",
 )
+parser.add_argument(
+    "-d",
+    "--delay",
+    nargs="?",
+    default=0,
+    type=float,
+    help="Number of seconds to delay before running the stress test",
+)
 args = parser.parse_args()
 
 logging.basicConfig(
@@ -22,6 +30,9 @@ logging.basicConfig(
     format="%(asctime)s %(message)s",
     datefmt="%Y/%m/%d %H:%M:%S",
 )
+
+logging.info(f"Delay before GPU stress test loop [{args.delay}s]")
+time.sleep(args.delay)
 
 x = torch.linspace(0, 4, 16 * 1024 ** 2).cuda()
 
