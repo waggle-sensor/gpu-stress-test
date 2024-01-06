@@ -25,7 +25,7 @@ docker run -it --rm --runtime nvidia --network host waggle/gpu-stress-test:lates
 
 Over-ride run-time to 2 minutes:
 ```bash
-docker run -it --rm --runtime nvidia --network host waggle/gpu-stress-test:latest -m 2
+docker run -it --rm --runtime nvidia --network host waggle/gpu-stress-test:latest -r 120
 ```
 
 ### Kubernetes Usage
@@ -43,7 +43,7 @@ pluginctl deploy --name gpu-test2 --selector resource.gpu=true waggle/gpu-stress
 
 Over-ride run-time to 1 minute:
 ```bash
-pluginctl deploy --name gpu-test2 --selector resource.gpu=true waggle/gpu-stress-test:1.0.0 -- -m 1
+pluginctl deploy --name gpu-test2 --selector resource.gpu=true waggle/gpu-stress-test:1.0.0 -- -r 60
 ```
 
 > Note: the source code for the Waggle `pluginctl` tool can be found here: https://github.com/waggle-sensor/edge-scheduler
