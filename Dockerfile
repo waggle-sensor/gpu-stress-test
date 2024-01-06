@@ -5,4 +5,4 @@ COPY . .
 ENTRYPOINT [ "python3", "stress.py"]
 # Updating the number of seconds to run a gpu burn test.
 # the -m 5 is no longe accurate
-CMD [" 300"]
+CMD ["-r 300"]
